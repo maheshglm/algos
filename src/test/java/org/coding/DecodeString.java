@@ -44,22 +44,59 @@ public class DecodeString {
         return res;
     }
 
+    private String solution1(String s) {
+        Stack<Integer> counts = new Stack<>();
+        Stack<String> strings = new Stack<>();
+        String result = "";
+        int index = 0;
+        while (index < s.length()) {
+            char c = s.charAt(index);
+            if (Character.isAlphabetic(c)) {
+                result += c;
+                index++;
+            } else if (Character.isDigit(c)) {
+                int num = 0;
+                while (Character.isDigit(s.charAt(index))) {
+                    num = num * 10 + s.charAt(index) - '0';
+                    index++;
+                }
+                counts.push(num);
+            } else if (s.charAt(index) == '[') {
+                strings.push(result);
+                result = "";
+                index++;
+            } else {
+                int num = counts.pop();
+                StringBuilder sb = new StringBuilder(strings.pop());
+                for (int i = 0; i < num; i++) {
+                    sb.append(result);
+                }
+                result = sb.toString();
+                index++;
+            }
+        }
+        return result;
+    }
+
     @Test
     public void test1() {
         String s = "3[a]2[bc]";
         System.out.println(solution(s)); //aaabcbc
+        System.out.println(solution1(s)); //aaabcbc
     }
 
     @Test
     public void test2() {
         String s = "3[a2[c]]";
         System.out.println(solution(s)); //accaccacc
+        System.out.println(solution1(s)); //accaccacc
     }
 
     @Test
     public void test3() {
         String s = "2[abc]3[cd]ef";
         System.out.println(solution(s)); //abcabccdcdcdef
+        System.out.println(solution1(s)); //abcabccdcdcdef
     }
 
     @Test
@@ -67,6 +104,15 @@ public class DecodeString {
         String s = "100[leetcode]";
         String expected = "leetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcode";
         Assert.assertEquals(expected, solution(s));
+        Assert.assertEquals(expected, solution1(s));
+    }
+
+    @Test
+    public void test5() {
+        String s = "abc4[a]";
+        String expected = "abcaaaa";
+        Assert.assertEquals(expected, solution(s));
+        Assert.assertEquals(expected, solution1(s));
     }
 
 }
