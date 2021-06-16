@@ -9,7 +9,6 @@ public class MinimumDepthBinaryTree {
 
     /*we ll use level order traversal to find minDepth*/
 
-
     public int solution(TreeNode root) {
         if (root == null) return 0;
 

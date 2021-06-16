@@ -2,6 +2,7 @@ package org.coding.Trees;
 
 public class MaximumDepthBinaryTree {
     /*This is bottom up approach */
+
     public int maxDepth(TreeNode root) {
         if (root == null) return 0;
 
@@ -24,11 +25,9 @@ public class MaximumDepthBinaryTree {
         if (node == null) {
             return;
         }
-
         if (node.left == null && node.right == null) {
             answer = Math.max(depth, answer);
         }
-
         recursive(node.left, depth + 1);
         recursive(node.right, depth + 1);
     }
