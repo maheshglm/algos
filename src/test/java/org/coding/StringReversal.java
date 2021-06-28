@@ -51,4 +51,11 @@ public class StringReversal {
 
         solution2(s);
     }
+
+    @Test
+    public void test2(){
+        String s = "The Daily Byte";
+        String expected = "etyB yliaD ehT";
+        System.out.println(solution1(s));
+    }
 }
