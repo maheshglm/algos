@@ -1,5 +1,6 @@
 package org.coding;
 
+import com.google.common.base.Strings;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,6 +12,10 @@ import java.util.Stack;
 public class DecodeString2 {
 
     public String solution(String s) {
+        if(Strings.isNullOrEmpty(s)){
+            return "";
+        }
+
         Stack<String> words = new Stack<>();
         Queue<Integer> counts = new LinkedList<>();
 
@@ -54,6 +59,23 @@ public class DecodeString2 {
     public void test1() {
         String s = "ab[cd]{2}";
         Assert.assertEquals("abcdcd", solution(s));
+    }
+
+    @Test
+    public void test4() {
+        String s = "";
+        Assert.assertEquals("", solution(s));
+    }
+    @Test
+    public void test6() {
+        String s = "abc";
+        Assert.assertEquals("abc", solution(s));
+    }
+
+    @Test
+    public void test5() {
+        String s = null;
+        Assert.assertEquals("", solution(s));
     }
 
     @Test
