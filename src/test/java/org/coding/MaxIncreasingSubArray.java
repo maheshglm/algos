@@ -19,7 +19,7 @@ public class MaxIncreasingSubArray {
         int maxLength = Integer.MIN_VALUE;
         int i = 1;
         int tempLen = 1;
-        int endEndIndex = 0;
+        int endIndex = 0;
 
         while (i < nums.length) {
             if (nums[i] > nums[i - 1]) {
@@ -29,13 +29,13 @@ public class MaxIncreasingSubArray {
             }
             if (maxLength < tempLen) {
                 maxLength = tempLen;
-                endEndIndex = i;
+                endIndex = i;
             }
             i++;
         }
-        int startIndex = endEndIndex - maxLength + 1;
+        int startIndex = endIndex - maxLength + 1;
 
-        for (int j = startIndex; j <= endEndIndex; j++) {
+        for (int j = startIndex; j <= endIndex; j++) {
             System.out.print(nums[j] + " ");
         }
         System.out.println();

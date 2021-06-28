@@ -16,7 +16,6 @@ public class LongestPalindromeSubstring {
         return true;
     }
 
-
     int resultStart = 0;
     int resultLength = 0;
 

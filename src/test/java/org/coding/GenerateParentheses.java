@@ -7,6 +7,7 @@ import java.util.List;
 
 //https://www.youtube.com/watch?v=sz1qaKt0KGQ - good explanation
 //https://www.youtube.com/watch?v=qBbZ3tS0McI&t=398s
+//https://www.youtube.com/watch?v=kCdelDh-k6Y
 public class GenerateParentheses {
 
     private List<String> solution(int n) {
@@ -15,8 +16,11 @@ public class GenerateParentheses {
         return output;
     }
 
+    //Time:
+    //Space:
     private void generate(List<String> output, String curr_string, int open, int close, int max) {
-        if (curr_string.length() == max * 2) {
+        if (curr_string.length() == max*2) {
+        //if (open == close && open == max) {
             output.add(curr_string);
             return;
         }
