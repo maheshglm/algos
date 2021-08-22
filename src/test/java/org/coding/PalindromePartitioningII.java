@@ -12,7 +12,7 @@ import java.util.List;
 public class PalindromePartitioningII {
 
     //https://www.youtube.com/watch?v=9h10fqkI7Nk
-    //dp using tablization
+    //dp using tabulisation
     private int solution1(String s) {
         if (s == null || s.length() == 0) return 0;
         //return recursive(s, 0, s.length() - 1);
@@ -40,7 +40,6 @@ public class PalindromePartitioningII {
 
         int min = Integer.MAX_VALUE;
         int temp;
-
 
         for (int k = i; k < j; k++) {
             int left = 0;

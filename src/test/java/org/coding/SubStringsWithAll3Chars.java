@@ -3,9 +3,8 @@ package org.coding;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
+//https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/723408/Sliding-Window-with-explanation-and-very-readable-with-comments
 //https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/518863/Python-3-%3A-Elegant-with-explanation
 //https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
 public class SubStringsWithAll3Chars {
@@ -35,6 +34,7 @@ public class SubStringsWithAll3Chars {
     Final result = 6
      */
 
+    //this solution takes more time
     private int solution1(String s) {
         int[] lastIndices = new int[]{-1, -1, -1};
         int result = 0;
@@ -58,16 +58,15 @@ public class SubStringsWithAll3Chars {
 
         int result = 0;
         while (right < s.length()) {
-            char c = s.charAt(right);
-            count[c - 'a']++;
+            char ch = s.charAt(right);
+            count[ch - 'a']++;
 
             while (left <= right && count[0] >= 1 && count[1] >= 1 && count[2] >= 1) {
                 count[s.charAt(left) - 'a']--;
                 left++;
             }
-
+            //each idx after closing will be equal to the number of substrings after this idx
             result += left;
-
             right++;
         }
 
@@ -82,7 +81,6 @@ public class SubStringsWithAll3Chars {
         System.out.println(solution(s));
         System.out.println(solution1(s));
         //Output 10
-
         /*
         Explanation: The substrings containing at least one occurrence of the characters a, b and c are
         "abc", "abca", "abcab", "abcabc", "bca", "bcab", "bcabc", "cab", "cabc" and "abc" (again).

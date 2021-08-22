@@ -16,6 +16,14 @@ public class PowerOfNumber {
         }
     }
 
+    //this is easy to understand
+    private int solution1(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return (x * solution(x, n - 1));
+    }
+
     @Test
     public void test1() {
         int x = 2;

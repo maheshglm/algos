@@ -12,7 +12,6 @@ public class AnagramsCheck {
         if (s1.length() != s2.length()) {
             return false;
         }
-
         StringBuilder sb = new StringBuilder(s2);
 
         for (char c : s1.toCharArray()) {
@@ -27,6 +26,7 @@ public class AnagramsCheck {
     }
 
     //This is using HashMap but clean solution will handle Unicode characters as well.
+    //O(N) O(1)
     private boolean solution2(String s1, String s2) {
         if (s1.length() != s2.length()) return false;
 
@@ -43,6 +43,7 @@ public class AnagramsCheck {
     }
 
     //This is using HashMap, will handle unicode characters as well.
+    //O(n) and space O(n)
     private boolean solution(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
@@ -61,8 +62,10 @@ public class AnagramsCheck {
 
         for (char c : s2.toCharArray()) {
             if (map.containsKey(c)) {
-                map.put(c, map.get(c) - 1);
-                if (map.get(c) < 0) {
+                Integer val = map.get(c);
+                if (val != 0) {
+                    map.put(c, val - 1);
+                } else {
                     return false;
                 }
             } else {
@@ -79,13 +82,13 @@ public class AnagramsCheck {
             return false;
         }
 
-        int[] charCount = new int[26];
+        int[] alphabetCount = new int[26];
         for (int i = 0; i < s1.length(); i++) {
-            charCount[s1.charAt(i) - 'a']++;
-            charCount[s2.charAt(i) - 'a']--;
+            alphabetCount[s1.charAt(i) - 'a']++;
+            alphabetCount[s2.charAt(i) - 'a']--;
         }
 
-        for (int count : charCount) {
+        for (int count : alphabetCount) {
             if (count != 0) {
                 return false;
             }
@@ -93,6 +96,16 @@ public class AnagramsCheck {
         return true;
     }
 
+
+    @Test
+    public void test0() {
+        String s1 = "aacc";
+        String s2 = "ccac";
+        System.out.println(solution(s1, s2)); //false
+        System.out.println(solution1(s1, s2)); //false
+        System.out.println(solution3(s1, s2)); //false
+        System.out.println(solution2(s1, s2)); //false
+    }
 
     @Test
     public void test1() {

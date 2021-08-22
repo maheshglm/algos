@@ -10,7 +10,6 @@ import org.junit.Test;
 //https://www.youtube.com/watch?v=W4rYz-kd-cY&t=313s
 public class DecodeWays {
 
-
     private int solution1(String s) {
         int[] dp = new int[s.length() + 1];
         return helper(s, s.length() - 1, dp);
@@ -85,6 +84,35 @@ public class DecodeWays {
             ways = helper(s, index - 1);
         }
         return ways;
+    }
+
+
+    private int solution2(String s) {
+        return recursive(s, 0);
+    }
+
+    public int recursive(String s, int index) {
+
+        if (index == s.length()) {
+            return 1;
+        }
+
+        //if starting start with 0 it cant be decoded
+        if (s.charAt(0) == '0') {
+            return 0;
+        }
+
+        if (index == s.length() - 1) {
+            return 1;
+        }
+
+        int result = recursive(s, index + 1);
+
+        String twoChars = s.substring(index, index + 2);
+        if (Integer.parseInt(twoChars) <= 26) {
+            result += recursive(s, index + 2);
+        }
+        return result;
     }
 
 

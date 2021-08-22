@@ -14,16 +14,16 @@ public class BalancedParenthesis {
             return true;
         }
 
-        Map<Character, Character> map = new HashMap<>();
-        map.put('(', ')');
-        map.put('{', '}');
-        map.put('[', ']');
+        Map<Character, Character> fixedMap = new HashMap<>();
+        fixedMap.put('(', ')');
+        fixedMap.put('{', '}');
+        fixedMap.put('[', ']');
 
         Stack<Character> bucket = new Stack<>();
         for (Character c : expression.toCharArray()) {
-            if (map.containsKey(c)) {
+            if (fixedMap.containsKey(c)) {
                 bucket.push(c);
-            } else if (map.get(bucket.peek()) == c) {
+            } else if (fixedMap.get(bucket.peek()) == c) {
                 bucket.pop();
             } else {
                 return false;

@@ -9,11 +9,12 @@ import java.util.*;
 //https://www.youtube.com/watch?v=cupg2TGIkyM&t=30s
 public class TopKFrequentWords {
 
-    /*Time Complexity: O(N log{k})O(Nlogk), where NN is the length of words.
-    We count the frequency of each word in O(N)O(N) time, then we add NN words to the heap,
-    each in O(log {k})O(logk) time.
-    Finally, we pop from the heap up to kk times.
-    As k \leq Nk≤N, this is O(N \log{k})O(Nlogk) in total*/
+    /*Time Complexity: O(Nlogk), where N is the length of words.
+    We count the frequency of each word in O(N) time,
+    then we add N words to the heap, each in O(logk) time.
+    Finally, we pop from the heap up to k times.
+    As k < N, this is O(Nlogk) in total*/
+    //space O(N)
     private List<String> solution(List<String> words, int k) {
         Map<String, Integer> map = new HashMap<>();
 
@@ -21,22 +22,32 @@ public class TopKFrequentWords {
             map.put(word, map.getOrDefault(word, 0) + 1);
         }
 
+        //sort the strings by less frequencies (as we are polling excess words and add remaining)
+        //if frequencies same, then
         Queue<String> pq = new PriorityQueue<>((word1, word2) -> {
             int frequency1 = map.get(word1);
             int frequency2 = map.get(word2);
-            if (frequency1 == frequency2) return word1.compareTo(word2);
-            return frequency2 - frequency1;
+            //greater alphabetical order comes first
+            if (frequency1 == frequency2) return word2.compareTo(word1);
+            //lesser frequencies
+            return frequency1 - frequency2;
         });
 
-        List<String> result = new ArrayList<>();
-
-        for(String s : map.keySet()){
-            pq.add(s);
+        //No need to all elements into heap
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            pq.add(entry.getKey());
+            if (pq.size() > k) {
+                pq.poll();
+            }
         }
 
-        while (k-- > 0) {
+        List<String> result = new ArrayList<>();
+        while (!pq.isEmpty()) {
             result.add(pq.poll());
         }
+
+        Collections.reverse(result);
+
         return result;
     }
 

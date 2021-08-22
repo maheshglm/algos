@@ -28,7 +28,6 @@ public class SubArraysWithOddSum {
         }
 
         long even = n + 1 - odd;
-
         return ((int) (odd * even) % 1000000007);
     }
 

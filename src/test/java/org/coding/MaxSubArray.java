@@ -45,6 +45,7 @@ public class MaxSubArray {
     }
 
     //O(N)
+    //Space O(1)
     public int solution1(int[] nums) {
         int maxSum = nums[0];
         int currentSum = nums[0];

@@ -2,9 +2,7 @@ package org.coding;
 
 import org.junit.Test;
 
-import java.security.PublicKey;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Queue;
 
 //https://leetcode.com/problems/jump-game-iii/
@@ -29,6 +27,7 @@ public class JumpGameIII {
         }
     }
 
+    //BFS breadth first search
     private boolean solution(int[] arr, int start) {
         int n = arr.length;
         boolean[] visited = new boolean[n];
@@ -40,7 +39,6 @@ public class JumpGameIII {
         while (!queue.isEmpty()) {
             int i = queue.poll();
             if (arr[i] == 0) return true;
-
 
             int maxIndex = i + arr[i];
             int minIndex = i - arr[i];
@@ -58,13 +56,32 @@ public class JumpGameIII {
         return false;
     }
 
+    //Dfs
+    private boolean solution1(int[] arr, int start) {
+        boolean[] visited = new boolean[arr.length];
+        return dfs(arr, start, visited);
+    }
+
+    private boolean dfs(int[] arr, int start, boolean[] visited) {
+        if (start >= 0 && start < arr.length && !visited[start]) {
+            if (arr[start] == 0) return true;
+
+            visited[start] = true;
+
+            return dfs(arr, start + arr[start], visited) ||
+                    dfs(arr, start - arr[start], visited);
+        }
+        return false;
+    }
+
 
     @Test
 
     public void test1() {
         int[] arr = {4, 2, 3, 0, 3, 1, 2};
         int start = 5;
-        System.out.println(solution(arr, start));
+        //System.out.println(solution(arr, start));
+        System.out.println(solution1(arr, start));
         //output = true
         /*
         Explanation:

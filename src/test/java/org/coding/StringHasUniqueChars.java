@@ -21,10 +21,10 @@ public class StringHasUniqueChars {
         int[] charSet = new int[128];
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (charSet[c] == '1') {
+            if (charSet[c] == 1) {
                 return false;
             }
-            charSet[c] = '1';
+            charSet[c] = 1;
         }
         return true;
     }

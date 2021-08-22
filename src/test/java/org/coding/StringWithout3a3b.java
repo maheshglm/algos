@@ -76,7 +76,6 @@ public class StringWithout3a3b {
                 sb.append(y);
                 b--;
             }
-
         }
         return sb.toString();
 

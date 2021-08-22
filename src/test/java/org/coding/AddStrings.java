@@ -5,6 +5,17 @@ import org.junit.Test;
 public class AddStrings {
 
 
+    /*
+    since long numbers cannot fit in integers, we need to do addition digit by digit.
+    Iterate from last char -> convert that to digit -> add the integers -> have carry variable
+    ex: "123" "99"
+    carry = 0
+    3 + 9 = 12, how do I get carry -> divide by 10 -> 12/10 = 1
+    which number shoud go into result -> the last digit which is 2 -> 12 % 10 = 2
+    If both numbers are equal, we can iterate from last index to 0 index of any digit.
+    since both are different length, we should iterate either of the string has more chars to calculate
+    finally add the carry if non zero
+     */
     public String solution(String num1, String num2) {
         int i = num1.length() - 1;
         int j = num2.length() - 1;

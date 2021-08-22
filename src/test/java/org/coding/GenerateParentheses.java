@@ -19,8 +19,7 @@ public class GenerateParentheses {
     //Time:
     //Space:
     private void generate(List<String> output, String curr_string, int open, int close, int max) {
-        if (curr_string.length() == max*2) {
-        //if (open == close && open == max) {
+        if (curr_string.length() == max * 2) {
             output.add(curr_string);
             return;
         }

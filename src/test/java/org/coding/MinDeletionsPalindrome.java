@@ -21,14 +21,12 @@ public class MinDeletionsPalindrome {
     }
 
     private boolean helper(String s, int i, int j) {
-        int a = i;
-        int b = j;
-        while (a <= b) {
-            if (s.charAt(a) != s.charAt(b)) {
+        while (i <= j) {
+            if (s.charAt(i) != s.charAt(j)) {
                 return false;
             }
-            a++;
-            b--;
+            i++;
+            j--;
         }
         return true;
     }

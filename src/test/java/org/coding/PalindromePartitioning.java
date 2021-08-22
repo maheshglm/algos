@@ -10,7 +10,6 @@ import java.util.List;
 //https://www.youtube.com/watch?v=3jvWodd7ht0
 public class PalindromePartitioning {
 
-
     /*
     Given a string s, partition s such that every substring of the partition is a palindrome.
     Return all possible palindrome partitioning of s.

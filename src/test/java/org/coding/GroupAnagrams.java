@@ -8,6 +8,7 @@ import java.util.*;
 public class GroupAnagrams {
 
 
+    //O(NK)
     public List solution1(String[] strs) {
         if (strs == null || strs.length == 0) {
             return Collections.EMPTY_LIST;
@@ -44,10 +45,11 @@ public class GroupAnagrams {
     public List<List<String>> solution(String[] strs) {
 
         if (strs == null || strs.length == 0) {
-            return Collections.EMPTY_LIST;
+            return Collections.singletonList(new ArrayList<>());
         }
 
         Map<String, List<String>> map = new HashMap<>();
+
         for (String s : strs) {
             String t = sort(s);
             if (!map.containsKey(t)) {
@@ -77,6 +79,7 @@ public class GroupAnagrams {
         String[] strs = {""};
         //Output = [[""]]
         System.out.println(solution(strs));
+        System.out.println(solution1(strs));
 
     }
 
@@ -85,6 +88,7 @@ public class GroupAnagrams {
         String[] strs = {"a"};
         //Output = [["a"]]
         System.out.println(solution(strs));
+        System.out.println(solution1(strs));
 
     }
 }

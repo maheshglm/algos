@@ -2,12 +2,10 @@ package org.coding;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
 
+//https://www.youtube.com/watch?v=dJ7sWiOoK7g&t=637s
 //https://leetcode.com/discuss/interview-question/363036/walmart-oa-2019-activate-fountains
 public class ActivateFountain {
-
 
     private int solution1(int[] arr) {
         int n = arr.length;

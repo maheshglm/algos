@@ -7,6 +7,53 @@ import org.junit.Test;
 //https://leetcode.com/problems/string-to-integer-atoi/solution/
 public class StringToInteger {
 
+
+    public int solution1(String s) {
+
+        int index = 0;
+        int sign = 1; //so we can multiply the number at the end
+        int total = 0;
+
+        //empty
+        if (s.length() == 0) return 0;
+
+        //remove spaces
+        while (index < s.length() && s.charAt(index) == ' ') {
+            index++;
+        }
+        //handle signs
+        if (s.charAt(index) == '+' || s.charAt(index) == '-') {
+            sign = s.charAt(index) == '+' ? 1 : -1;
+            index++;
+        }
+
+        //convert number to avoid overflow
+        while (index < s.length()) {
+            int digit = s.charAt(index) - '0';
+            if (digit < 0 || digit > 9) break;
+
+            //handle overflow
+            //test case 5
+            boolean isResultOverflow = total > Integer.MAX_VALUE / 10;
+
+            //test case 6
+            boolean isAddingNextNumberOverflow =
+                    (total == Integer.MAX_VALUE / 10
+                            && digit > Integer.MAX_VALUE % 10);
+
+            if (isResultOverflow || isAddingNextNumberOverflow) {
+                return (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+
+            total = 10 * total + digit;
+            index++;
+        }
+
+        return total * sign;
+
+
+    }
+
     public int solution(String s) {
         int result = 0;
         int sign = 1; //positive
@@ -66,7 +113,8 @@ public class StringToInteger {
     public void test5() {
         String s = "-91283472332";
         Assert.assertEquals(-2147483648, solution(s));
-        //The number "-91283472332" is out of the range of a 32-bit signed integer. Therefore INT_MIN (−231) is returned.
+        //The number "-91283472332" is out of the range of a 32-bit signed integer.
+        // Therefore INT_MIN (−231) is returned.
     }
 
 

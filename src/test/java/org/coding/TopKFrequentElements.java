@@ -16,14 +16,19 @@ public class TopKFrequentElements {
             counts.put(n, counts.getOrDefault(n, 0) + 1);
         }
 
-        Queue<Integer> pq = new PriorityQueue<>((n1, n2) -> counts.get(n2) - counts.get(n1));
+        //inserting in reverse order so that we can poll in opposite way
+        //smaller numbers first
+        Queue<Integer> pq = new PriorityQueue<>((n1, n2) -> counts.get(n1) - counts.get(n2));
 
+        //there are 2 options, insert into PQ in reverse order and add n elements to pq
+        //but with that approach the time complexity is O(NlogN) instead of O(NlogK)
         for (int n : counts.keySet()) {
             pq.add(n);
+            if (pq.size() > k) pq.poll();
         }
 
         int[] result = new int[k];
-        for (int i = 0; i < k; i++) {
+        for (int i = k - 1; i >= 0; i--) {
             result[i] = pq.poll();
         }
         return result;

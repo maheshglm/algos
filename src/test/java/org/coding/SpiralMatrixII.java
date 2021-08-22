@@ -23,7 +23,6 @@ public class SpiralMatrixII {
         int colBegin = 0;
         int colEnd = n - 1;
 
-
         while (rowBegin <= rowEnd && colBegin <= colEnd) {
             for (int i = colBegin; i <= colEnd; i++) {
                 result[rowBegin][i] = value++;

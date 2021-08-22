@@ -3,8 +3,7 @@ package org.coding;
 import org.junit.Test;
 
 //https://www.youtube.com/watch?v=3RHCb8LY-X4
-public class MaxProfit {
-
+public class BestTimeBuySell {
 
     private int solution(int[] prices) {
         int minBuy = Integer.MAX_VALUE;

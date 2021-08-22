@@ -8,7 +8,6 @@ import java.util.Stack;
 //https://www.youtube.com/watch?v=WZwNoTm_9d8
 public class InorderTraversal {
 
-
     private List<Integer> solution(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) return result;

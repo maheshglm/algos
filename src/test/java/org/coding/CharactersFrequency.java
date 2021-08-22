@@ -40,8 +40,7 @@ public class CharactersFrequency {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) != ' ' && s.charAt(i) != '\n') {
                 if (s.charAt(i) != temp) {
-                    sb.append(temp)
-                            .append(map.get(temp));
+                    sb.append(temp).append(map.get(temp));
                     map.remove(temp);
                 }
                 map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);

@@ -7,6 +7,7 @@ public class MinimumTaps {
 
     private int solution(int[] ranges, int n) {
         int[] dp = new int[n + 1];
+
         for (int i = 0; i < ranges.length; i++) {
             int min = Math.max(i - ranges[i], 0);
             int max = i + ranges[i];

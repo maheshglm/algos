@@ -8,7 +8,6 @@ import java.util.Arrays;
 //https://leetcode.com/problems/maximum-number-of-consecutive-values-you-can-make/
 public class MaxNumberConsecutiveValues {
 
-
     /*
     You are given an integer array coins of length n which represents the n coins that you own.
     The value of the ith coin is coins[i].
@@ -19,13 +18,14 @@ public class MaxNumberConsecutiveValues {
 
     private int solution(int[] coins) {
         Arrays.sort(coins);
-        int total = 0;
+        int total = 1;
         for (int c : coins) {
-            if (c <= total + 1) total += c;
+            if (c <= total)
+                total += c;
             else break;
         }
         //adding 1 for empty sum i.e. without collecting any coins 'zero'
-        return total + 1;
+        return total;
     }
 
 

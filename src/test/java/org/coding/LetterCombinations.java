@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 //https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 //https://www.youtube.com/watch?v=nNGSZdx6F3M
 public class LetterCombinations {
@@ -20,7 +21,6 @@ public class LetterCombinations {
         if (digits != null && digits.length() > 0) {
             dfs(digits, result, new StringBuilder(), 0);
         }
-
         return result;
     }
 
@@ -29,6 +29,7 @@ public class LetterCombinations {
             result.add(sb.toString());
             return;
         }
+
         int num = digits.charAt(index) - '0';
 
         for (char c : map[num].toCharArray()) {

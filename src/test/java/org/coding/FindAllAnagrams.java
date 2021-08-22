@@ -9,7 +9,6 @@ import java.util.List;
 //https://leetcode.com/problems/find-all-anagrams-in-a-string/
 public class FindAllAnagrams {
 
-
     //This approach is time consuming because every iteration I am calculating length of small string.
     private List<Integer> solution(String big, String small) {
         List<Integer> indices = new ArrayList<>();
@@ -42,6 +41,7 @@ public class FindAllAnagrams {
     //efficient approach
     private List<Integer> solution2(String big, String small) {
         List<Integer> indices = new ArrayList<>();
+
         if (big == null && small == null) return Collections.singletonList(0);
         if (big == null || small == null || big.length() < small.length()) return indices;
 
@@ -52,7 +52,7 @@ public class FindAllAnagrams {
 
         int windowStart = 0;
         int windowEnd = 0;
-        int count = 0; //for every 3 chars of big string we need to check, is it anagram or not
+        int count = 0; //for every small.length chars of big string we need to check, is it anagram or not
 
         int[] tempCount = new int[26];
 
@@ -60,6 +60,7 @@ public class FindAllAnagrams {
             tempCount[big.charAt(windowEnd++) - 'a']++;
             count++;
             if (count % small.length() == 0) {
+                //Arrays.equals can be used here
                 if (compareArrays(charsCount, tempCount)) {
                     indices.add(windowStart);
                 }

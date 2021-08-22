@@ -11,15 +11,10 @@ public class PermutationsII {
 
     private List<List<Integer>> solution(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-
         if (nums.length == 0) return result;
-
         Arrays.sort(nums);
-
         boolean[] visited = new boolean[nums.length];
-
         dfs(nums, result, new ArrayList<>(), visited);
-
         return result;
     }
 
@@ -31,6 +26,7 @@ public class PermutationsII {
 
         for (int i = 0; i < nums.length; i++) {
             if (visited[i]) continue;
+            //to skip duplicates
             if (i > 0 && nums[i] == nums[i - 1] && visited[i - 1]) continue;
 
             temp.add(nums[i]);
@@ -40,7 +36,6 @@ public class PermutationsII {
             visited[i] = false;
         }
     }
-
 
     public List<List<Integer>> solution1(int[] nums) {
         List<List<Integer>> results = new ArrayList<>();
@@ -71,6 +66,7 @@ public class PermutationsII {
                 backtrack(nums, results, temp, countMap);
 
                 temp.remove(temp.size() - 1);
+                //restore the count for next backtrack processing.
                 countMap.put(num, count);
             }
         }

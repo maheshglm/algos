@@ -9,6 +9,7 @@ public class MaxConsecutiveOnesII {
     private int solution(int[] nums, int k) {
         int windowStart = 0;
         int windowEnd = 0;
+
         while (windowEnd < nums.length) {
             if (nums[windowEnd] == 0) {
                 k--;
@@ -53,7 +54,7 @@ public class MaxConsecutiveOnesII {
         int[] nums = {1, 0, 0, 1, 1, 0};
         //System.out.println(solution(nums, 1)); //output 3
         //System.out.println(solution(nums, 2)); //output 5
-        //System.out.println(solution1(nums, 2)); //output 5
+        System.out.println(solution(nums, 1)); //output 3
         System.out.println(solution1(nums, 1)); //output 3
     }
 
@@ -61,23 +62,27 @@ public class MaxConsecutiveOnesII {
     public void test1() {
         int[] nums = {1, 1, 0, 0, 1, 1, 1, 1, 1};
         System.out.println(solution(nums, 1)); //output 6
+        System.out.println(solution1(nums, 1)); //output 6
     }
 
     @Test
     public void test2() {
         int[] nums = {0, 1, 0, 1, 0, 0, 1, 1, 1, 1};
         System.out.println(solution(nums, 1)); //output 5
+        System.out.println(solution1(nums, 1)); //output 5
     }
 
     @Test
     public void test3() {
         int[] nums = {0, 1, 0, 1, 0, 0, 1, 1, 1, 1};
         System.out.println(solution(nums, 2)); //output 7
+        System.out.println(solution1(nums, 2)); //output 7
     }
 
     @Test
     public void test4() {
         int[] nums = {1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0};
+        System.out.println(solution(nums, 2)); //output 6
         System.out.println(solution(nums, 2)); //output 6
     }
 

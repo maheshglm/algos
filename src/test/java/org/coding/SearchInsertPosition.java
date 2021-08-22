@@ -11,7 +11,8 @@ public class SearchInsertPosition {
     If not, return the index where it would be if it were inserted in order.
      */
     /*
-    Also notice that the input target might be larger than all elements in nums and thus needs to placed at the end of the array.
+    Also notice that the input target might be larger than all elements in nums and thus needs to
+    placed at the end of the array.
     That’s why we should initialize right = len(nums) instead of right = len(nums) — 1 .
      */
     private int solution(int[] nums, int target) {

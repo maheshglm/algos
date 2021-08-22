@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+//https://www.hackerearth.com/practice/notes/heaps-and-priority-queues/
 public class KthLargestElement {
 
 
@@ -33,6 +34,7 @@ public class KthLargestElement {
 
     //max heap
     private int solution2(int[] nums, int k) {
+
         PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
         for (int num : nums) {
             pq.add(num);
@@ -52,7 +54,7 @@ public class KthLargestElement {
 
         //System.out.println(solution1(nums, k));
         //System.out.println(solution2(nums, k));
-        System.out.println(solution(nums, 3));
+        System.out.println(solution(nums, 3));//7
     }
 
     @Test

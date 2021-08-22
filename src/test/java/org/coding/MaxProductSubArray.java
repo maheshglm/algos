@@ -4,7 +4,45 @@ import org.junit.Test;
 
 //https://www.youtube.com/watch?v=IDeyPqApnX0
 //https://leetcode.com/problems/maximum-product-subarray/
+//https://leetcode.com/problems/maximum-product-subarray/solution/
 public class MaxProductSubArray {
+
+    //O(N) O(1)
+    //https://leetcode.com/problems/maximum-product-subarray/discuss/48230/Possibly-simplest-solution-with-O(n)-time-complexity
+    private int solution3(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int product = 1;
+
+        for (int n : nums) {
+            product *= n;
+            max = Math.max(product, max);
+            if (product == 0)
+                product = 1;
+        }
+
+        product = 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            product *= nums[i];
+            max = Math.max(product, max);
+            if (product == 0)
+                product = 1;
+        }
+        return max;
+    }
+
+
+    //O(N^2)
+    public int solution2(int[] nums) {
+        int result = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            int acc = 1;
+            for (int j = i; j < nums.length; j++) {
+                acc *= nums[j];
+                result = Math.max(acc, result);
+            }
+        }
+        return result;
+    }
 
     public int solution1(int[] nums) {
         if (nums.length == 0) {
@@ -31,6 +69,7 @@ public class MaxProductSubArray {
         //output = 6
         //[2,3] has the largest product 6.
         System.out.println(solution1(nums));
+        System.out.println(solution3(nums));
 
     }
 
@@ -40,6 +79,7 @@ public class MaxProductSubArray {
         //output = 25
         //[25] has the largest product 25.
         System.out.println(solution1(nums));
+        System.out.println(solution2(nums));
 
     }
 
@@ -49,6 +89,7 @@ public class MaxProductSubArray {
         //output = 0
         //The result cannot be 2, because [-2,-1] is not a subarray.
         System.out.println(solution1(nums));
+        System.out.println(solution2(nums));
 
     }
 }

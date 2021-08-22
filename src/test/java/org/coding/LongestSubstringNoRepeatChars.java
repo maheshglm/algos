@@ -15,14 +15,14 @@ public class LongestSubstringNoRepeatChars {
 
         while (windowEnd < s.length()) {
             char right = s.charAt(windowEnd);
-            if (!set.contains(right)) {
-                set.add(right);
-                windowEnd++;
-                maxLen = Math.max(maxLen, set.size());
-            } else {
+            if (set.contains(right)) {
                 set.remove(s.charAt(windowStart));
                 windowStart++;
+            } else {
+                set.add(right);
+                maxLen = Math.max(maxLen, set.size());
             }
+            windowEnd++;
         }
         return maxLen;
     }

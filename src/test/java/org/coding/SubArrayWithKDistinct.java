@@ -20,6 +20,7 @@ public class SubArrayWithKDistinct {
     }
 
     //It is similar to LongestSubStringWithKDistinct.java program
+    //
     private int atMost(int[] nums, int k) {
         int left = 0;
         int right = 0;

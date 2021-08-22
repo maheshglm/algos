@@ -8,8 +8,23 @@ import java.util.List;
 
 public class BinaryAddition {
 
+
+    //O(N + M) time
+    //drawback is if length is large, integer cannot hold,
+    //so bit by bit computation is better
+    private String solution3(String a, String b) {
+        int num1 = Integer.parseInt(a, 2);
+        int num2 = Integer.parseInt(b, 2);
+        return Integer.toBinaryString(num1 + num2);
+    }
+
+    //O(max(N, M))
+    //space O(max(N, M))
     //recommended approach
-    private static String solution2(String a, String b) {
+    //Similar to Integer string addition AddStrings.java
+    //since these binary numbers, we should use base 2 instead of base 10,
+    //for calculating carry and result
+    private String solution2(String a, String b) {
         StringBuilder sb = new StringBuilder();
 
         int i = a.length() - 1;
@@ -18,6 +33,7 @@ public class BinaryAddition {
         int sum;
         while (i >= 0 || j >= 0) {
 
+            //2 different ways to get number from character
             int digit1 = i >= 0 ? a.charAt(i) - '0' : 0;
             int digit2 = j >= 0 ? Character.getNumericValue(b.charAt(j)) : 0;
 
@@ -67,7 +83,6 @@ public class BinaryAddition {
         return sb.append(carry).reverse().toString();
     }
 
-
     private static Result getAddResult(List<Character> chars) {
         long onesCount = chars.stream().filter(c -> c.equals('1')).count();
         if (onesCount == 1) {
@@ -80,7 +95,6 @@ public class BinaryAddition {
         return new Result('0', '0');
     }
 
-
     @Test
     public void test1() {
         String s1 = "101101";
@@ -89,7 +103,7 @@ public class BinaryAddition {
         String expected = "1101010";
         Assert.assertEquals(expected, solution2(s1, s2));
         Assert.assertEquals(expected, solution(s1, s2));
-
+        Assert.assertEquals(expected, solution3(s1, s2));
     }
 
     @Test
@@ -101,6 +115,7 @@ public class BinaryAddition {
 
         Assert.assertEquals(expected, solution2(s1, s2));
         Assert.assertEquals(expected, solution(s1, s2));
+        Assert.assertEquals(expected, solution3(s1, s2));
     }
 
     @Test
@@ -112,5 +127,6 @@ public class BinaryAddition {
 
         Assert.assertEquals(expected, solution2(s1, s2));
         Assert.assertEquals(expected, solution(s1, s2));
+        Assert.assertEquals(expected, solution3(s1, s2));
     }
 }

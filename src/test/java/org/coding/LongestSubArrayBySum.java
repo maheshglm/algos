@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class LongestSubArrayBySum {
 
     //Sliding window approach
-    public static int[] solution(int[] a, int s) {
+    public int[] solution(int[] a, int s) {
 
         int[] result = new int[]{-1, -1};
         int left = 0;
@@ -28,15 +28,12 @@ public class LongestSubArrayBySum {
                 }
             }
 
-            if (sum < s) {
-                right++;
-            }
-
+            right++;
         }
         return result;
     }
 
-    public static int[] solution2(int[] a, int s) {
+    public int[] solution2(int[] a, int s) {
         int[] result = {-1, -1};
         int left = 0;
         int right = 0;

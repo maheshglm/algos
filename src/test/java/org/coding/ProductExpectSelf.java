@@ -9,6 +9,8 @@ public class ProductExpectSelf {
 
     //please solve it without division
 
+    //O(N) - N represents number of elements
+    //space - O(N)
     private static int[] solution2(int[] nums) {
         int N = nums.length;
         int[] leftProducts = new int[N];
@@ -33,6 +35,8 @@ public class ProductExpectSelf {
         return output;
     }
 
+    //O(N)
+    //O(1) output array does not consider for space, so its constant
     private static int[] solution3(int[] nums) {
         int N = nums.length;
 

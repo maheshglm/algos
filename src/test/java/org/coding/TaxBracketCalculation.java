@@ -20,9 +20,9 @@ public class TaxBracketCalculation {
     private static double getTaxAmount(int income, List<TaxBracket> brackets) {
         double totalTax = 0;
         int taxableIncome;
-        for (TaxBracket taxslab : brackets) {
-            Integer slabLimit = taxslab.limit;
-            double slabTax = taxslab.tax;
+        for (TaxBracket taxSlab : brackets) {
+            Integer slabLimit = taxSlab.limit;
+            double slabTax = taxSlab.tax;
             if (slabLimit != null) {
                 taxableIncome = Math.min(income, slabLimit);
                 totalTax += taxableIncome * slabTax;
@@ -54,7 +54,6 @@ public class TaxBracketCalculation {
 
             if (income <= 0) break;
         }
-
         return taxAmount;
     }
 

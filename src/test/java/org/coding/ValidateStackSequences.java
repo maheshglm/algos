@@ -4,12 +4,15 @@ import org.junit.Test;
 
 import java.util.Stack;
 
+//https://leetcode.com/problems/validate-stack-sequences/
 public class ValidateStackSequences {
 
+    //Given two sequences pushed and popped with distinct values,
+    //return true if and only if this could have been the result of a sequence of
+    //push and pop operations on an initially empty stack.
+
     private boolean solution(int[] pushed, int[] popped) {
-
         Stack<Integer> stack = new Stack<>();
-
         int i = 0;
         int j = 0;
         while (i < pushed.length && j < popped.length) {

@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.*;
 
 //https://www.youtube.com/watch?v=j9_qWJClp64
-//https://www.youtube.com/watch?v=IER1ducXujU
+//https://www.youtube.com/watch?v=IER1ducXujU - Good
 //https://leetcode.com/problems/combination-sum-ii/
 public class CombinationSumII {
 
@@ -20,11 +20,8 @@ public class CombinationSumII {
 
     public List<List<Integer>> solution(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-
         if (candidates == null || candidates.length == 0) return result;
-
         Arrays.sort(candidates);
-
         dfs(candidates, target, result, new ArrayList<>(), 0);
         return result;
     }
@@ -48,6 +45,25 @@ public class CombinationSumII {
             }
         }
     }
+
+
+    public List<List<Integer>> solution1(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates);
+        helper(candidates, target, 0, new ArrayList<>(), result);
+
+        return result;
+    }
+
+    public void helper(int[] candidates, int target, int index, List<Integer> current, List<List<Integer>> result) {
+        if (target == 0) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+
+    }
+
 
     @Test
     public void test1() {

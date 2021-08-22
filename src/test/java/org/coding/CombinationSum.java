@@ -21,7 +21,6 @@ public class CombinationSum {
 
     public List<List<Integer>> solution(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-
         dfs(candidates, target, result, new ArrayList<>(), 0);
         return result;
     }
