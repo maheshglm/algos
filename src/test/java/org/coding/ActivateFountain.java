@@ -2,7 +2,7 @@ package org.coding;
 
 import org.junit.Test;
 
-
+//https://www.youtube.com/watch?v=ps86nPtaEtE
 //https://www.youtube.com/watch?v=dJ7sWiOoK7g&t=637s
 //https://leetcode.com/discuss/interview-question/363036/walmart-oa-2019-activate-fountains
 public class ActivateFountain {
@@ -28,7 +28,6 @@ public class ActivateFountain {
             for (int i = left; i < right + 1; i++) {
                 farthest = Math.max(farthest, dp[i]);
             }
-
             left = right + 1;
             right = farthest;
             cnt++;

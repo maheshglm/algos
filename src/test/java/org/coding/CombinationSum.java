@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+//https://www.youtube.com/watch?v=GBKI9VSKdGg
 //https://leetcode.com/problems/combination-sum/
 public class CombinationSum {
 
@@ -16,7 +17,8 @@ public class CombinationSum {
     The same number may be chosen from candidates an unlimited number of times.
     Two combinations are unique if the frequency of at least one of the chosen numbers is different.
 
-    It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+    It is guaranteed that the number of unique combinations that sum up to target is less than
+    150 combinations for the given input.
      */
 
     public List<List<Integer>> solution(int[] candidates, int target) {
@@ -35,11 +37,9 @@ public class CombinationSum {
             return;
         }
 
-        if (candidates[index] <= target) {
-            temp.add(candidates[index]);
-            dfs(candidates, target - candidates[index], result, temp, index);
-            temp.remove(temp.size() - 1);
-        }
+        temp.add(candidates[index]);
+        dfs(candidates, target - candidates[index], result, temp, index);
+        temp.remove(temp.size() - 1);
         dfs(candidates, target, result, temp, index + 1);
     }
 

@@ -5,6 +5,10 @@ import org.junit.Test;
 //https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
 public class MaximumPointsFromCards {
 
+    /*
+    In one step, you can take one card from the beginning or from the end of the row.
+    You have to take exactly k cards.
+     */
     //O(k)
     //space O(1)
     private int solution(int[] points, int k) {
@@ -25,7 +29,6 @@ public class MaximumPointsFromCards {
             leftSum -= points[k - 1 - i];
             maxSum = Math.max(maxSum, rightSum + leftSum);
         }
-
         return maxSum;
     }
 

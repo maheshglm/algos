@@ -12,7 +12,6 @@ public class FirstNonRepeatedChar {
 
         for (int i = 0; i < s.length(); i++) {
             char letter = s.charAt(i);
-
             if (nonRepeated.contains(letter)) {
                 nonRepeated.remove((Character) letter);
             } else {

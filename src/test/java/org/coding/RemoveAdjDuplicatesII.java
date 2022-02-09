@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Stack;
 
 //https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/
-public class RemoveAdjDuplicatesII {
+public class  RemoveAdjDuplicatesII {
 
     /*
     Given a string s, a k duplicate removal consists of choosing k adjacent and equal letters from s
@@ -46,9 +46,10 @@ public class RemoveAdjDuplicatesII {
         for (Node node : stack) {
             int times = node.times;
             char c = node.ch;
-            for (int i = 0; i < times; i++) {
-                sb.append(c);
-            }
+            sb.append(String.valueOf(c).repeat(Math.max(0, times)));
+//            for (int i = 0; i < times; i++) {
+//                sb.append(c);
+//            }
         }
         return sb.toString();
     }

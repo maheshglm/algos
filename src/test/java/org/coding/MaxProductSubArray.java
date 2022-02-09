@@ -16,16 +16,14 @@ public class MaxProductSubArray {
         for (int n : nums) {
             product *= n;
             max = Math.max(product, max);
-            if (product == 0)
-                product = 1;
+            if (product == 0) product = 1;
         }
 
         product = 1;
         for (int i = nums.length - 1; i >= 0; i--) {
             product *= nums[i];
             max = Math.max(product, max);
-            if (product == 0)
-                product = 1;
+            if (product == 0) product = 1;
         }
         return max;
     }
@@ -70,6 +68,7 @@ public class MaxProductSubArray {
         //[2,3] has the largest product 6.
         System.out.println(solution1(nums));
         System.out.println(solution3(nums));
+        System.out.println(solution2(nums));
 
     }
 

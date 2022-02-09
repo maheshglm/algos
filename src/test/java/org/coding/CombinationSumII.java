@@ -27,7 +27,6 @@ public class CombinationSumII {
     }
 
     private void dfs(int[] candidates, int target, List<List<Integer>> result, List<Integer> combination, int index) {
-
         if (target == 0) {
             result.add(new ArrayList<>(combination));
             return;
@@ -46,25 +45,6 @@ public class CombinationSumII {
         }
     }
 
-
-    public List<List<Integer>> solution1(int[] candidates, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates);
-        helper(candidates, target, 0, new ArrayList<>(), result);
-
-        return result;
-    }
-
-    public void helper(int[] candidates, int target, int index, List<Integer> current, List<List<Integer>> result) {
-        if (target == 0) {
-            result.add(new ArrayList<>(current));
-            return;
-        }
-
-
-    }
-
-
     @Test
     public void test1() {
         int[] candidates = {2, 5, 2, 1, 2};
@@ -80,6 +60,4 @@ public class CombinationSumII {
         System.out.println(solution(candidates, target));
         //[1,1,6], [1,2,5], [1,7], [2,6]
     }
-
-
 }

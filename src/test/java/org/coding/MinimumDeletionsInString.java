@@ -25,9 +25,7 @@ public class MinimumDeletionsInString {
 
         while (!maxHeap.isEmpty()) {
             Integer mostFrequent = maxHeap.poll();
-
             if (maxHeap.isEmpty()) return count;
-
             if (mostFrequent.equals(maxHeap.peek())) {
                 if (mostFrequent > 1) {
                     maxHeap.add(mostFrequent - 1);

@@ -38,10 +38,9 @@ public class LongestStringChain {
             for (int i = 0; i < word.length(); i++) {
                 StringBuilder current = new StringBuilder(word);
                 //Time - L length of word for delete char
-                String nextWord = current.deleteCharAt(i).toString();
+                final String nextWord = current.deleteCharAt(i).toString();
                 if (memo.containsKey(nextWord)) {
-                    int max = Math.max(memo.get(word), memo.get(nextWord) + 1);
-                    memo.put(word, max);
+                    memo.put(word, memo.get(nextWord) + 1);
                 }
             }
             result = Math.max(result, memo.get(word));

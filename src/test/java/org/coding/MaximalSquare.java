@@ -59,9 +59,7 @@ public class MaximalSquare {
         if (grid[row][col] == '1') {
             memo[row][col] = 1 + Math.min(downDir, Math.min(rightDir, diagonalDir));
         }
-
         return memo[row][col];
-
     }
 
 
@@ -86,7 +84,6 @@ public class MaximalSquare {
             }
         }
         return maxSqLen * maxSqLen;
-
     }
 
     @Test

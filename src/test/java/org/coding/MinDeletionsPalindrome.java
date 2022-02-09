@@ -5,8 +5,8 @@ import org.junit.Test;
 //https://leetcode.com/problems/valid-palindrome-ii/
 public class MinDeletionsPalindrome {
 
-    //Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
-
+    //Given a non-empty string s, you may delete at most one character.
+    //Judge whether you can make it a palindrome.
     private boolean solution(String s) {
         int i = 0;
         int j = s.length() - 1;

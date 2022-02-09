@@ -14,7 +14,6 @@ public class ZeroOneMatrix {
     Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
      */
     private int[][] solution(int[][] matrix) {
-
         if (matrix == null || matrix.length == 0) return matrix;
 
         int rows = matrix.length;
@@ -46,6 +45,7 @@ public class ZeroOneMatrix {
                     if (row < 0 || row >= rows || col < 0 || col >= cols || visited[row][col])
                         continue;
 
+                    //else
                     matrix[row][col] = matrix[currentPosition[0]][currentPosition[1]] + 1;
                     q.add(new int[]{row, col});
                     visited[row][col] = true;
@@ -81,18 +81,6 @@ public class ZeroOneMatrix {
                 {0, 1, 0},
                 {1, 1, 1}
         };
-
-        /*
-        int[][] matrix = {
-                { 0,  0,   0},
-                { 0,  -1,  0},
-                { -1, -1, -1}
-        };
-        q = (0,0) (0,1) (0,2) (1,0) (1,2)
-        bfs starts from each zero cell
-
-
-         */
 
         int[][] output = {
                 {0, 0, 0},

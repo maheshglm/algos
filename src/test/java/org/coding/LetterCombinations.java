@@ -43,12 +43,14 @@ public class LetterCombinations {
     public void test1() {
         String s = "23";
         System.out.println(solution(s));
+        //[ad, ae, af, bd, be, bf, cd, ce, cf]
     }
 
     @Test
     public void test2() {
         String s = "235";
         System.out.println(solution(s));
+        //[adj, adk, adl, aej, aek, ael, afj, afk, afl, bdj, bdk, bdl, bej, bek, bel, bfj, bfk, bfl, cdj, cdk, cdl, cej, cek, cel, cfj, cfk, cfl]
     }
 
 

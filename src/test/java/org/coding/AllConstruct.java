@@ -28,7 +28,10 @@ public class AllConstruct {
 
         List<List<String>> result = new ArrayList<>();
 
+
         for (String word : wordBank) {
+
+
             if (target.startsWith(word)) {
                 String remaining = target.substring(word.length());
                 List<List<String>> suffixWays = solution(remaining, wordBank);

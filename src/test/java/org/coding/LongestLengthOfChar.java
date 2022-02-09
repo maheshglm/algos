@@ -30,7 +30,7 @@ public class LongestLengthOfChar {
 
     @Test
     public void test2() {
-        String s = "asdfasdf";
-        System.out.println(solution(s)); //output = 4
+        String s = "asdfsadf";
+        System.out.println(solution(s)); //output = 5
     }
 }

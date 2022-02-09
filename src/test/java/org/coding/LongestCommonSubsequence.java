@@ -43,7 +43,6 @@ public class LongestCommonSubsequence {
         return count;
     }
 
-
     //recursive with memo as only recursive solution will give TLE with large inputs
     //memo is because we might end up calculating same subproblems in recursive way
     //I can store ij combination with count in a map or an array
@@ -60,7 +59,7 @@ public class LongestCommonSubsequence {
             return memo.get(i + "," + j);
         }
 
-        int count = 0;
+        int count;
         if (text1.charAt(i) == text2.charAt(j)) {
             count = 1 + memoHelper(text1, text2, i + 1, j + 1, memo);
         } else {
@@ -105,7 +104,6 @@ public class LongestCommonSubsequence {
         return count;
     }
 
-
     /*
     Remembering too that each subproblem is represented as a pair of indexes,
     and that there are text1.length() * text2.length() such possible subproblems,
@@ -132,7 +130,6 @@ public class LongestCommonSubsequence {
         }
         return dp[0][0];
     }
-
 
     //with optimized space as we can reuse columns after computation
     //and we can use 1D array

@@ -14,7 +14,7 @@ public class AddStrings {
     which number shoud go into result -> the last digit which is 2 -> 12 % 10 = 2
     If both numbers are equal, we can iterate from last index to 0 index of any digit.
     since both are different length, we should iterate either of the string has more chars to calculate
-    finally add the carry if non zero
+    finally add the carry if non-zero
      */
     public String solution(String num1, String num2) {
         int i = num1.length() - 1;
@@ -24,7 +24,6 @@ public class AddStrings {
         StringBuilder sb = new StringBuilder();
 
         while (i >= 0 || j >= 0) {
-
             int digit1 = i >= 0 ? num1.charAt(i) - '0' : 0;
             int digit2 = j >= 0 ? num2.charAt(j) - '0' : 0;
 

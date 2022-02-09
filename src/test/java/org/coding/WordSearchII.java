@@ -39,7 +39,6 @@ public class WordSearchII {
             return false;
         }
 
-
         char temp = board[i][j];
         board[i][j] = '0';
 

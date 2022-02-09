@@ -7,7 +7,6 @@ import org.junit.Test;
 public class LongestPalindromeSubstring {
 
     //same concept of PalindromicSubstrings.java
-
     private static boolean isPalindrome(String s) {
         int i = 0;
         int j = s.length() - 1;
@@ -101,8 +100,8 @@ public class LongestPalindromeSubstring {
         for (int i = 0; i < input.length(); i++) {
             for (int j = i; j < input.length(); j++) {
                 String substring = input.substring(i, j + 1);
-                int currentLength = j + 1 - i;
-                if (isPalindrome(substring) && currentLength > maxLen) {
+                int currentLength = substring.length();
+                if (isPalindrome(substring) && substring.length() > maxLen) {
                     maxLen = currentLength;
                     result = substring;
                 }

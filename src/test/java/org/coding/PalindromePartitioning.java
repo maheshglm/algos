@@ -29,7 +29,6 @@ public class PalindromePartitioning {
             result.add(new ArrayList<>(temp));
             return;
         }
-
         for (int i = index; i < s.length(); i++) {
             if (isPalindrome(s, index, i)) {
                 temp.add(s.substring(index, i + 1));

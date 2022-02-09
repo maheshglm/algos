@@ -24,7 +24,6 @@ public class MergeIntervals {
         Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
 
         List<int[]> result = new ArrayList<>();
-
         int[] current_interval = intervals[0];
 
         result.add(current_interval);
@@ -41,20 +40,6 @@ public class MergeIntervals {
                 current_interval = intervals[i];
             }
         }
-
-//        for (int[] interval : intervals) {
-//            int current_end = current_interval[1];
-//            int next_begin = interval[0];
-//            int next_end = interval[1];
-//
-//            if (current_end >= next_begin) {
-//                current_interval[1] = Math.max(current_end, next_end);
-//            } else {
-//                result.add(interval);
-//                current_interval = interval;
-//            }
-//        }
-
         return result.toArray(new int[result.size()][]);
     }
 

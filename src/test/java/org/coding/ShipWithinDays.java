@@ -8,7 +8,6 @@ import java.util.Arrays;
 //https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
 public class ShipWithinDays {
 
-
     //Using Binary search
     private int solution2(int[] weights, int maxDays) {
         int low = Arrays.stream(weights).max().getAsInt();

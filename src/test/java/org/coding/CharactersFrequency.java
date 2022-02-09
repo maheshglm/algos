@@ -35,19 +35,19 @@ public class CharactersFrequency {
         StringBuilder sb = new StringBuilder();
         Map<Character, Integer> map = new HashMap<>();
 
-        char temp = s.charAt(0);
+        char recent = s.charAt(0);
 
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) != ' ' && s.charAt(i) != '\n') {
-                if (s.charAt(i) != temp) {
-                    sb.append(temp).append(map.get(temp));
-                    map.remove(temp);
+                if (s.charAt(i) != recent) {
+                    sb.append(recent).append(map.get(recent));
+                    map.remove(recent);
                 }
                 map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
-                temp = s.charAt(i);
+                recent = s.charAt(i);
             }
         }
-        return sb.append(temp).append(map.get(temp)).toString();
+        return sb.append(recent).append(map.get(recent)).toString();
     }
 
     @Test

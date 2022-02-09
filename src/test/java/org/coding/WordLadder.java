@@ -25,7 +25,6 @@ public class WordLadder {
     }
 
     private int solution(String beginWord, String endWord, List<String> wordList) {
-
         HashSet<String> set = new HashSet<>(wordList);
 
         if (!set.contains(endWord)) return 0;
@@ -39,7 +38,7 @@ public class WordLadder {
             int size = q.size();
             for (int i = 0; i < size; i++) {
                 String currWord = q.poll();
-                if (currWord.equals(endWord))
+                if (endWord.equals(currWord))
                     return level + 1;
 
                 char[] newWord = currWord.toCharArray();

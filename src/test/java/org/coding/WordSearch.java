@@ -8,12 +8,10 @@ public class WordSearch {
 
     /*
     Given an m x n grid of characters board and a string word, return true if word exists in the grid.
-
     The word can be constructed from letters of sequentially adjacent cells,
     where adjacent cells are horizontally or vertically neighboring.
     The same letter cell may not be used more than once
      */
-
     private boolean solution(char[][] board, String word) {
         int rows = board.length;
         int columns = board[0].length;
@@ -61,7 +59,6 @@ public class WordSearch {
         return false;
     }
 
-
     int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
     public boolean searchWord1(char[][] board, int i, int j, int index, String word) {
@@ -80,17 +77,15 @@ public class WordSearch {
         board[i][j] = ' ';
 
         for (int[] dir : dirs) {
-            int newI = i + dir[0];
-            int newJ = j + dir[1];
-            if (searchWord1(board, newI, newJ, index + 1, word)) {
+            int ii = i + dir[0];
+            int jj = j + dir[1];
+            if (searchWord1(board, ii, jj, index + 1, word)) {
                 board[i][j] = temp;
                 return true;
             }
         }
-
         board[i][j] = temp;
         return false;
-
     }
 
     @Test

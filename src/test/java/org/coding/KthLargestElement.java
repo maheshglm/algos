@@ -28,13 +28,29 @@ public class KthLargestElement {
             }
             i++;
         }
+        return pq.peek();
+    }
+
+    /*
+    here adding all elements and polling kth elements is not best solution
+     */
+    private int solution3(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int n : nums) {
+            pq.add(n);
+        }
+
+        int polls = nums.length - k;
+
+        while (polls-- > 0) {
+            pq.poll();
+        }
 
         return pq.peek();
     }
 
     //max heap
     private int solution2(int[] nums, int k) {
-
         PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
         for (int num : nums) {
             pq.add(num);
@@ -43,7 +59,6 @@ public class KthLargestElement {
         while (--k > 0) {
             pq.poll();
         }
-
         return pq.peek();
     }
 
@@ -55,6 +70,7 @@ public class KthLargestElement {
         //System.out.println(solution1(nums, k));
         //System.out.println(solution2(nums, k));
         System.out.println(solution(nums, 3));//7
+        System.out.println(solution3(nums, 3));//7
     }
 
     @Test
@@ -63,6 +79,7 @@ public class KthLargestElement {
         int k = 4;
 
         System.out.println(solution(nums, k)); //4
+        System.out.println(solution3(nums, k)); //4
     }
 
     @Test
@@ -71,6 +88,7 @@ public class KthLargestElement {
         int k = 3;
 
         System.out.println(solution(nums, k)); //1
+        System.out.println(solution3(nums, k)); //1
     }
 
 }

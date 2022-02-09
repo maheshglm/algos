@@ -13,7 +13,6 @@ public class HeapSort {
         for (int num : nums) {
             pq.add(num);
         }
-
         while (!pq.isEmpty()) {
             System.out.print(pq.poll() + " ");
         }

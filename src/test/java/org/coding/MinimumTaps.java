@@ -23,7 +23,6 @@ public class MinimumTaps {
             for (int i = left; i < right + 1; i++) {
                 farthest = Math.max(dp[i], farthest);
             }
-
             left = right + 1;
             right = farthest;
             result++;

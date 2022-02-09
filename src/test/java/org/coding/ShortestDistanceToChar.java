@@ -9,7 +9,6 @@ import java.util.Arrays;
 public class ShortestDistanceToChar {
 
     private int[] solution(String s, char c) {
-
         if (s == null || s.isEmpty()) {
             return null;
         }
@@ -32,7 +31,6 @@ public class ShortestDistanceToChar {
             }
             result[i] = Math.min(result[i], Math.abs(c_position - i));
         }
-
         return result;
     }
 

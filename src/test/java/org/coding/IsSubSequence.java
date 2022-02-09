@@ -15,7 +15,7 @@ public class IsSubSequence {
             }
             i++;
         }
-        //if j overshoted means all characters are matched
+        //if j overshoot means all characters are matched
         return j == s.length();
     }
 

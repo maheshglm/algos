@@ -56,5 +56,4 @@ public class MergeSortedLists {
             result_node = result_node.next;
         }
     }
-
 }

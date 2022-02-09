@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 public class RemoveEvenIntegers {
 
-
     private int[] solution(int[] nums) {
         int oddElements = 0;
 

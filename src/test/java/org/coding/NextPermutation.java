@@ -7,7 +7,6 @@ import java.util.Arrays;
 //https://www.youtube.com/watch?v=PYXl_yY-rms
 public class NextPermutation {
 
-
     //from the end we need to find out longest increasing sequence.
     //6, 2, 1, 5, 4, 3, 0
     //k = 5 (last but one index) compare with next element
@@ -27,24 +26,20 @@ public class NextPermutation {
     //now arrange all elements from k+1 to end in ascending order
     ///6, 2, 3, 5, 4, 1, 0 -> 6, 2, 3, 0, 1, 4, 5
 
-
     private void solution(int[] nums) {
         int k = nums.length - 2;
         while (k >= 0 && nums[k] > nums[k + 1]) {
             k--;
         }
 
-        if (k == -1) {
-            reverse(nums, 0, nums.length - 1);
-            return;
-        }
-
-        for (int l = nums.length - 1; l > k; l--) {
-            if (nums[l] > nums[k]) {
-                int temp = nums[l];
-                nums[l] = nums[k];
-                nums[k] = temp;
-                break;
+        if (k >= 0) {
+            for (int l = nums.length - 1; l > k; l--) {
+                if (nums[l] > nums[k]) {
+                    int temp = nums[l];
+                    nums[l] = nums[k];
+                    nums[k] = temp;
+                    break;
+                }
             }
         }
         reverse(nums, k + 1, nums.length - 1);

@@ -5,7 +5,6 @@ import org.junit.Test;
 //https://www.youtube.com/watch?v=dHJDhsvBd8c&list=PL5b07qlmA3P6UWAVm6rnJXpWAB3Vnj59B&index=39
 public class Search2DMatrix {
 
-
     //applying binary search as the matrix is sorted
     private boolean solution(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
